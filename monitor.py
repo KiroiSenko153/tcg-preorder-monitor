@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 
 PAGES = {
-    "riftbound": "https://games-island.eu/en/c/Card-Games/Riftbound-League-of-Lends",
+    "riftbound": "https://games-island.eu/en/c/Card-Games/Riftbound-League-of-Legends",
     "onepiece": "https://games-island.eu/en/c/Card-Games/One-Piece-Booster-Display__English",
     "magic": "https://games-island.eu/en/c/Magic-The-Gathering/MtG-Booster-Boxes-English",
 }
