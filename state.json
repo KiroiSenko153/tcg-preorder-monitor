@@ -1,1 +1,29 @@
-{}
+{
+  "magic|datenschutz": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-08T22:04:08.172939+00:00",
+    "name": "Datenschutz",
+    "price": "",
+    "status": "UNKNOWN",
+    "url": "https://games-island.eu/Datenschutz"
+  },
+  "onepiece|datenschutz": {
+    "available_from": "",
+    "category": "onepiece",
+    "last_seen": "2026-03-08T22:04:08.172936+00:00",
+    "name": "Datenschutz",
+    "price": "",
+    "status": "UNKNOWN",
+    "url": "https://games-island.eu/Datenschutz"
+  },
+  "riftbound|datenschutz": {
+    "available_from": "",
+    "category": "riftbound",
+    "last_seen": "2026-03-08T22:04:08.172931+00:00",
+    "name": "Datenschutz",
+    "price": "",
+    "status": "UNKNOWN",
+    "url": "https://games-island.eu/Datenschutz"
+  }
+}
