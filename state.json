@@ -1,1 +1,146 @@
-{}
+{
+  "magic|- 11%": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522218+00:00",
+    "name": "- 11%",
+    "price": "79,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Foundations-Jumpstart-Booster-Box-English"
+  },
+  "magic|avatar: the last airbender play booster box - english": {
+    "available_from": "27.03.2026",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522214+00:00",
+    "name": "Avatar: The Last Airbender Play Booster Box - English",
+    "price": "139,99 €",
+    "status": "PRE-ORDER",
+    "url": "https://games-island.eu/Avatar-The-Last-Airbender-Play-Booster-Box-English"
+  },
+  "magic|best sellers": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522232+00:00",
+    "name": "Best sellers",
+    "price": "159,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Bloomburrow-Play-Booster-Box-English"
+  },
+  "magic|bloomburrow collector booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522228+00:00",
+    "name": "Bloomburrow Collector Booster Box - English",
+    "price": "799,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Bloomburrow-Collector-Booster-Box-English"
+  },
+  "magic|bloomburrow play booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522237+00:00",
+    "name": "Bloomburrow Play Booster Box - English",
+    "price": "159,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Bloomburrow-Play-Booster-Box-English"
+  },
+  "magic|commander masters set booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522252+00:00",
+    "name": "Commander Masters Set Booster Box - English",
+    "price": "449,00 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Commander-Masters-Set-Booster-Box-English"
+  },
+  "magic|foundations jumpstart booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522223+00:00",
+    "name": "Foundations Jumpstart Booster Box - English",
+    "price": "79,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Foundations-Jumpstart-Booster-Box-English"
+  },
+  "magic|mtg - marvel super heroes collector booster box - english": {
+    "available_from": "26.06.2026",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522166+00:00",
+    "name": "MtG - Marvel Super Heroes Collector Booster Box - English",
+    "price": "379,99 €",
+    "status": "PRE-ORDER",
+    "url": "https://games-island.eu/MtG-Marvel-Super-Heroes-Collector-Booster-Box-English"
+  },
+  "magic|mtg - marvel super heroes jumpstart booster box - english": {
+    "available_from": "26.06.2026",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522175+00:00",
+    "name": "MtG - Marvel Super Heroes Jumpstart Booster Box - English",
+    "price": "114,99 €",
+    "status": "PRE-ORDER",
+    "url": "https://games-island.eu/MtG-Marvel-Super-Heroes-Jumpstart-Booster-Box-English"
+  },
+  "magic|mtg - marvel super heroes play booster box - english": {
+    "available_from": "26.06.2026",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522182+00:00",
+    "name": "MtG - Marvel Super Heroes Play Booster Box - English",
+    "price": "139,99 €",
+    "status": "PRE-ORDER",
+    "url": "https://games-island.eu/MtG-Marvel-Super-Heroes-Play-Booster-Box-English"
+  },
+  "magic|mtg - secrets of strixhaven collector booster box - english": {
+    "available_from": "24.04.2026",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522188+00:00",
+    "name": "MtG - Secrets of Strixhaven Collector Booster Box - English",
+    "price": "239,99 €",
+    "status": "PRE-ORDER",
+    "url": "https://games-island.eu/MtG-Secrets-of-Strixhaven-Collector-Booster-Box-English"
+  },
+  "magic|mtg - secrets of strixhaven play booster box - english": {
+    "available_from": "24.04.2026",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522193+00:00",
+    "name": "MtG - Secrets of Strixhaven Play Booster Box - English",
+    "price": "109,99 €",
+    "status": "PRE-ORDER",
+    "url": "https://games-island.eu/MtG-Secrets-of-Strixhaven-Play-Booster-Box-English"
+  },
+  "magic|mtg - teenage mutant ninja turtles collector booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522199+00:00",
+    "name": "MtG - Teenage Mutant Ninja Turtles Collector Booster Box - English",
+    "price": "359,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/MtG-Teenage-Mutant-Ninja-Turtles-Collector-Booster-Box-English"
+  },
+  "magic|mtg - teenage mutant ninja turtles play booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522209+00:00",
+    "name": "MtG - Teenage Mutant Ninja Turtles Play Booster Box - English",
+    "price": "139,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/MtG-Teenage-Mutant-Ninja-Turtles-Play-Booster-Box-English"
+  },
+  "magic|outlaws of thunder junction collector booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522242+00:00",
+    "name": "Outlaws of Thunder Junction Collector Booster Box - English",
+    "price": "379,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Outlaws-of-Thunder-Junction-Collector-Booster-Box-English"
+  },
+  "magic|outlaws of thunder junction play booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-03-17T17:35:43.522247+00:00",
+    "name": "Outlaws of Thunder Junction Play Booster Box - English",
+    "price": "129,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Outlaws-of-Thunder-Junction-Play-Booster-Box-English"
+  }
+}
