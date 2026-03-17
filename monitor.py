@@ -82,37 +82,113 @@ def extract_price(text: str) -> str:
 
 
 def extract_available_from(text: str) -> str:
-    m = re.search(r"Available from:\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})", text, re.IGNORECASE)
+    m = re.search(
+        r"Available from:\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})",
+        text,
+        re.IGNORECASE,
+    )
     return m.group(1) if m else ""
 
 
 def is_blocked_name(text: str) -> bool:
     low = normalize_key(text)
     blocked = [
-        "datenschutz", "privacy", "impressum", "imprint", "agb", "widerruf",
-        "cancellation", "shipping", "payment", "kontakt", "contact",
-        "wishlist", "basket", "register", "login", "log in", "terms",
-        "cookies", "manufacturer", "manufacturers", "sort order",
-        "filters", "language", "price range", "items found", "please wait",
-        "validating", "blacklisted",
+        "datenschutz",
+        "privacy",
+        "impressum",
+        "imprint",
+        "agb",
+        "widerruf",
+        "cancellation",
+        "shipping",
+        "payment",
+        "kontakt",
+        "contact",
+        "wishlist",
+        "basket",
+        "register",
+        "login",
+        "log in",
+        "terms",
+        "cookies",
+        "manufacturer",
+        "manufacturers",
+        "sort order",
+        "filters",
+        "language",
+        "price range",
+        "items found",
+        "please wait",
+        "validating",
+        "blacklisted",
+        "our store",
+        "other tcg sale",
+        "oversized playmats",
+        "paint sets",
+        "marvel champions",
+        "marvel champions accessories",
+        "yu-gi-oh",
     ]
     return any(x in low for x in blocked)
 
 
-def looks_like_product(name: str, href: str, full_text: str) -> bool:
-    if not name or is_blocked_name(name):
-        return False
+def is_product_url(url: str) -> bool:
+    low = (url or "").lower()
 
-    href_low = (href or "").lower()
-    if any(x in href_low for x in ["/privacy", "/datenschutz", "/impressum", "/agb", "/widerruf"]):
-        return False
-
-    signals = [
-        "booster", "display", "deck", "box", "riftbound",
-        "one piece", "magic", "mtg", "league of legends",
+    blocked_parts = [
+        "/en/c/",
+        "/store",
+        "/login",
+        "/register",
+        "/wishlist",
+        "/basket",
+        "/privacy",
+        "/datenschutz",
+        "/impressum",
+        "/agb",
+        "/widerruf",
+        "?k=",
+        "#",
     ]
-    hay = f"{normalize_key(name)} {normalize_key(full_text)}"
-    return any(s in hay for s in signals)
+
+    if any(part in low for part in blocked_parts):
+        return False
+
+    if not low.startswith("https://games-island.eu/"):
+        return False
+
+    return True
+
+
+def matches_category_keywords(category: str, name: str, url: str, full_text: str) -> bool:
+    hay = f"{normalize_key(name)} {normalize_key(url)} {normalize_key(full_text)}"
+
+    keywords = {
+        "magic": [
+            "booster",
+            "box",
+            "collector",
+            "play booster",
+            "draft booster",
+            "set booster",
+            "jumpstart",
+        ],
+        "onepiece": [
+            "booster",
+            "box",
+            "display",
+            "op",
+        ],
+        "riftbound": [
+            "riftbound",
+            "booster",
+            "deck",
+            "champion",
+            "origins",
+        ],
+    }
+
+    return any(k in hay for k in keywords.get(category, []))
 
 
 def fetch_rendered_html(url: str) -> str:
@@ -148,23 +224,48 @@ def parse_products(html_text: str, category: str) -> list[dict]:
     products = []
     seen = set()
 
-    containers = soup.select("a[href]")
-    for a in containers:
+    for a in soup.select("a[href]"):
         href = absolute_url(a.get("href", ""))
-        name = normalize_text(a.get_text(" ", strip=True))
-
-        if not href or not name:
+        if not is_product_url(href):
             continue
 
-        parent = a
-        for _ in range(5):
-            if parent.parent is None:
+        container = a
+        for _ in range(6):
+            if container.parent is None:
                 break
-            parent = parent.parent
+            container = container.parent
+            text_len = len(normalize_text(container.get_text(" ", strip=True)))
+            if text_len > 80:
+                break
 
-        full_text = normalize_text(parent.get_text(" ", strip=True))
+        full_text = normalize_text(container.get_text(" ", strip=True))
+        name = normalize_text(a.get_text(" ", strip=True))
 
-        if not looks_like_product(name, href, full_text):
+        if not name:
+            continue
+
+        if is_blocked_name(name):
+            continue
+
+        bad_names = {
+            "out of stock",
+            "in stock",
+            "available immediately",
+            "available from",
+            "pre-order",
+            "pre order",
+        }
+        if normalize_key(name) in bad_names:
+            continue
+
+        if not matches_category_keywords(category, name, href, full_text):
+            continue
+
+        status = detect_status(full_text)
+        price = extract_price(full_text)
+        available_from = extract_available_from(full_text)
+
+        if not (price or status != "UNKNOWN" or available_from):
             continue
 
         pid = (category, normalize_key(name), href)
@@ -172,14 +273,16 @@ def parse_products(html_text: str, category: str) -> list[dict]:
             continue
         seen.add(pid)
 
-        products.append({
-            "category": category,
-            "name": name,
-            "url": href,
-            "status": detect_status(full_text),
-            "price": extract_price(full_text),
-            "available_from": extract_available_from(full_text),
-        })
+        products.append(
+            {
+                "category": category,
+                "name": name,
+                "url": href,
+                "status": status,
+                "price": price,
+                "available_from": available_from,
+            }
+        )
 
     return products
 
@@ -224,34 +327,39 @@ def compare_states(old_state: dict, new_products: list[dict]):
         prev = old_state.get(pid)
 
         if prev is None:
-            alerts.append(
-                "\n".join([
-                    "🚨 GAMES ISLAND - NUOVO PRODOTTO",
-                    f"Categoria: {cur['category'].upper()}",
-                    f"Nome: {cur['name']}",
-                    f"Stato: {cur['status']}",
-                    f"Prezzo: {cur['price'] or 'N/D'}",
-                    f"Data: {cur['available_from'] or 'N/D'}",
-                    cur["url"],
-                ])
-            )
+            if cur["status"] in {"PRE-ORDER", "COMING SOON", "IN STOCK"}:
+                alerts.append(
+                    "\n".join(
+                        [
+                            "🚨 GAMES ISLAND - NUOVO PRODOTTO",
+                            f"Categoria: {cur['category'].upper()}",
+                            f"Nome: {cur['name']}",
+                            f"Stato: {cur['status']}",
+                            f"Prezzo: {cur['price'] or 'N/D'}",
+                            f"Data: {cur['available_from'] or 'N/D'}",
+                            cur["url"],
+                        ]
+                    )
+                )
             new_state[pid] = cur
             continue
 
         prev_status = prev.get("status", "UNKNOWN")
         cur_status = cur.get("status", "UNKNOWN")
 
-        if prev_status != cur_status:
+        if prev_status != cur_status and cur_status in {"PRE-ORDER", "COMING SOON", "IN STOCK"}:
             alerts.append(
-                "\n".join([
-                    "🚨 GAMES ISLAND - CAMBIO STATO",
-                    f"Categoria: {cur['category'].upper()}",
-                    f"Nome: {cur['name']}",
-                    f"Stato: {prev_status} -> {cur_status}",
-                    f"Prezzo: {cur['price'] or 'N/D'}",
-                    f"Data: {cur['available_from'] or 'N/D'}",
-                    cur["url"],
-                ])
+                "\n".join(
+                    [
+                        "🚨 GAMES ISLAND - CAMBIO STATO",
+                        f"Categoria: {cur['category'].upper()}",
+                        f"Nome: {cur['name']}",
+                        f"Stato: {prev_status} -> {cur_status}",
+                        f"Prezzo: {cur['price'] or 'N/D'}",
+                        f"Data: {cur['available_from'] or 'N/D'}",
+                        cur["url"],
+                    ]
+                )
             )
 
         new_state[pid] = cur
