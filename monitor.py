@@ -20,7 +20,8 @@ STATE_FILE = "state.json"
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 
-GOOD_STATUSES = {"PRE-ORDER", "COMING SOON", "IN STOCK"}
+ALERT_STATUSES = {"PRE-ORDER", "COMING SOON", "IN STOCK"}
+TRACKED_STATUSES = {"OUT OF STOCK", "PRE-ORDER", "COMING SOON", "IN STOCK"}
 
 
 def log(msg: str) -> None:
@@ -267,8 +268,7 @@ def parse_products(html_text: str, category: str) -> list[dict]:
         price = extract_price(full_text)
         available_from = extract_available_from(full_text)
 
-        # da qui in poi teniamo SOLO prodotti utili al monitor preorder
-        if status not in GOOD_STATUSES:
+        if status not in TRACKED_STATUSES:
             continue
 
         pid = (category, normalize_key(name), href)
@@ -330,26 +330,27 @@ def compare_states(old_state: dict, new_products: list[dict]):
         prev = old_state.get(pid)
 
         if prev is None:
-            alerts.append(
-                "\n".join(
-                    [
-                        "🚨 GAMES ISLAND - NUOVO PRODOTTO",
-                        f"Categoria: {cur['category'].upper()}",
-                        f"Nome: {cur['name']}",
-                        f"Stato: {cur['status']}",
-                        f"Prezzo: {cur['price'] or 'N/D'}",
-                        f"Data: {cur['available_from'] or 'N/D'}",
-                        cur["url"],
-                    ]
+            if cur["status"] in ALERT_STATUSES:
+                alerts.append(
+                    "\n".join(
+                        [
+                            "🚨 GAMES ISLAND - NUOVO PRODOTTO",
+                            f"Categoria: {cur['category'].upper()}",
+                            f"Nome: {cur['name']}",
+                            f"Stato: {cur['status']}",
+                            f"Prezzo: {cur['price'] or 'N/D'}",
+                            f"Data: {cur['available_from'] or 'N/D'}",
+                            cur["url"],
+                        ]
+                    )
                 )
-            )
             new_state[pid] = cur
             continue
 
         prev_status = prev.get("status", "UNKNOWN")
         cur_status = cur.get("status", "UNKNOWN")
 
-        if prev_status != cur_status and cur_status in GOOD_STATUSES:
+        if prev_status != cur_status and cur_status in ALERT_STATUSES:
             alerts.append(
                 "\n".join(
                     [
@@ -383,13 +384,13 @@ def run() -> int:
                 continue
 
             products = parse_products(html_text, category)
-            log(f"{category}: trovati {len(products)} prodotti utili")
+            log(f"{category}: trovati {len(products)} prodotti tracciati")
             all_products.extend(products)
         except Exception as exc:
             log(f"Errore su {category}: {exc}")
 
     if not all_products:
-        log("Nessun prodotto utile trovato. Mantengo lo stato attuale e termino senza errore.")
+        log("Nessun prodotto tracciato trovato. Mantengo lo stato attuale e termino senza errore.")
         return 0
 
     if not old_state:
