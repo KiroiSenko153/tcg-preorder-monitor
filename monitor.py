@@ -308,7 +308,14 @@ def send_telegram_message(text: str) -> None:
 def make_product_id(product: dict) -> str:
     return f"{product['category']}|{normalize_key(product['name'])}"
 
-
+def get_alert_prefix(status: str) -> str:
+    mapping = {
+        "PRE-ORDER": "🔥 HIGH PRIORITY",
+        "COMING SOON": "🟡 WATCHLIST",
+        "IN STOCK": "🟢 BUY NOW",
+    }
+    return mapping.get(status, "ℹ️ ALERT")
+    
 def compare_states(old_state: dict, new_products: list[dict]):
     new_state = {}
     alerts = []
@@ -331,10 +338,11 @@ def compare_states(old_state: dict, new_products: list[dict]):
 
         if prev is None:
             if cur["status"] in ALERT_STATUSES:
+                prefix = get_alert_prefix(cur["status"])
                 alerts.append(
                     "\n".join(
                         [
-                            "🚨 GAMES ISLAND - NUOVO PRODOTTO",
+                            f"{prefix} - NUOVO PRODOTTO",
                             f"Categoria: {cur['category'].upper()}",
                             f"Nome: {cur['name']}",
                             f"Stato: {cur['status']}",
@@ -351,10 +359,11 @@ def compare_states(old_state: dict, new_products: list[dict]):
         cur_status = cur.get("status", "UNKNOWN")
 
         if prev_status != cur_status and cur_status in ALERT_STATUSES:
+            prefix = get_alert_prefix(cur_status)
             alerts.append(
                 "\n".join(
                     [
-                        "🚨 GAMES ISLAND - CAMBIO STATO",
+                        f"{prefix} - CAMBIO STATO",
                         f"Categoria: {cur['category'].upper()}",
                         f"Nome: {cur['name']}",
                         f"Stato: {prev_status} -> {cur_status}",
@@ -368,7 +377,6 @@ def compare_states(old_state: dict, new_products: list[dict]):
         new_state[pid] = cur
 
     return new_state, alerts
-
 
 def run() -> int:
     old_state = load_state()
