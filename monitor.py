@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 
 import requests
 from bs4 import BeautifulSoup
+from playwright.sync_api import sync_playwright, TimeoutError as PlaywrightTimeoutError
 
 
 PAGES = {
@@ -18,17 +19,6 @@ STATE_FILE = "state.json"
 
 BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
 CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
-
-HEADERS = {
-    "User-Agent": (
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-        "AppleWebKit/537.36 (KHTML, like Gecko) "
-        "Chrome/134.0.0.0 Safari/537.36"
-    ),
-    "Accept-Language": "en-US,en;q=0.9,it-IT;q=0.8,it;q=0.7",
-    "Cache-Control": "no-cache",
-    "Pragma": "no-cache",
-}
 
 
 def log(msg: str) -> None:
@@ -63,12 +53,6 @@ def absolute_url(href: str) -> str:
     return "https://games-island.eu" + href
 
 
-def fetch_html(url: str) -> str:
-    response = requests.get(url, headers=HEADERS, timeout=40)
-    response.raise_for_status()
-    return response.text
-
-
 def detect_status(text: str) -> str:
     t = normalize_key(text)
 
@@ -91,180 +75,96 @@ def extract_price(text: str) -> str:
         r"(EUR\s*\d{1,4}[.,]\d{2})",
     ]
     for pattern in patterns:
-        match = re.search(pattern, text, re.IGNORECASE)
-        if match:
-            return normalize_text(match.group(1))
+        m = re.search(pattern, text, re.IGNORECASE)
+        if m:
+            return normalize_text(m.group(1))
     return ""
 
 
 def extract_available_from(text: str) -> str:
-    match = re.search(
-        r"Available from:\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})",
-        text,
-        re.IGNORECASE,
-    )
-    return match.group(1) if match else ""
+    m = re.search(r"Available from:\s*([0-9]{2}\.[0-9]{2}\.[0-9]{4})", text, re.IGNORECASE)
+    return m.group(1) if m else ""
 
 
 def is_blocked_name(text: str) -> bool:
     low = normalize_key(text)
     blocked = [
-        "datenschutz",
-        "privacy",
-        "impressum",
-        "imprint",
-        "agb",
-        "widerruf",
-        "cancellation",
-        "shipping",
-        "payment",
-        "kontakt",
-        "contact",
-        "wishlist",
-        "basket",
-        "register",
-        "login",
-        "log in",
-        "terms",
-        "cookies",
-        "manufacturer",
-        "manufacturers",
-        "sort order",
-        "filters",
-        "language",
-        "price range",
-        "items found",
+        "datenschutz", "privacy", "impressum", "imprint", "agb", "widerruf",
+        "cancellation", "shipping", "payment", "kontakt", "contact",
+        "wishlist", "basket", "register", "login", "log in", "terms",
+        "cookies", "manufacturer", "manufacturers", "sort order",
+        "filters", "language", "price range", "items found", "please wait",
+        "validating", "blacklisted",
     ]
     return any(x in low for x in blocked)
 
 
-def looks_like_product_href(href: str) -> bool:
-    low = (href or "").lower()
-    blocked = [
-        "/privacy",
-        "/datenschutz",
-        "/impressum",
-        "/agb",
-        "/widerruf",
-        "/kontakt",
-        "/contact",
-        "/login",
-        "/register",
-    ]
-    if any(x in low for x in blocked):
+def looks_like_product(name: str, href: str, full_text: str) -> bool:
+    if not name or is_blocked_name(name):
         return False
 
-    # molti prodotti hanno URL dedicato che non è una category page
-    return True
+    href_low = (href or "").lower()
+    if any(x in href_low for x in ["/privacy", "/datenschutz", "/impressum", "/agb", "/widerruf"]):
+        return False
+
+    signals = [
+        "booster", "display", "deck", "box", "riftbound",
+        "one piece", "magic", "mtg", "league of legends",
+    ]
+    hay = f"{normalize_key(name)} {normalize_key(full_text)}"
+    return any(s in hay for s in signals)
 
 
-def parse_products_from_jsonld(soup: BeautifulSoup, category: str) -> list[dict]:
-    products = []
-    seen = set()
+def fetch_rendered_html(url: str) -> str:
+    with sync_playwright() as p:
+        browser = p.chromium.launch(headless=True)
+        context = browser.new_context(
+            locale="en-US",
+            user_agent=(
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/134.0.0.0 Safari/537.36"
+            ),
+            viewport={"width": 1440, "height": 2200},
+        )
+        page = context.new_page()
 
-    for script in soup.find_all("script", type="application/ld+json"):
-        raw = script.string or script.get_text(strip=True)
-        if not raw:
-            continue
+        page.goto(url, wait_until="domcontentloaded", timeout=90000)
 
         try:
-            data = json.loads(raw)
-        except Exception:
-            continue
+            page.wait_for_load_state("networkidle", timeout=20000)
+        except PlaywrightTimeoutError:
+            pass
 
-        nodes = data if isinstance(data, list) else [data]
+        page.wait_for_timeout(5000)
 
-        for node in nodes:
-            if not isinstance(node, dict):
-                continue
-
-            # caso ItemList
-            if node.get("@type") == "ItemList":
-                for item in node.get("itemListElement", []):
-                    if not isinstance(item, dict):
-                        continue
-                    target = item.get("item") if isinstance(item.get("item"), dict) else item
-                    name = normalize_text(target.get("name", ""))
-                    url = absolute_url(target.get("url", ""))
-                    if not name or not url or is_blocked_name(name):
-                        continue
-
-                    pid = (category, normalize_key(name), url)
-                    if pid in seen:
-                        continue
-                    seen.add(pid)
-
-                    products.append({
-                        "category": category,
-                        "name": name,
-                        "url": url,
-                        "status": "UNKNOWN",
-                        "price": "",
-                        "available_from": "",
-                    })
-
-            # caso Product
-            if node.get("@type") == "Product":
-                name = normalize_text(node.get("name", ""))
-                url = absolute_url(node.get("url", ""))
-                if not name or not url or is_blocked_name(name):
-                    continue
-
-                price = ""
-                offers = node.get("offers")
-                if isinstance(offers, dict):
-                    maybe_price = offers.get("price")
-                    if maybe_price:
-                        price = str(maybe_price)
-
-                pid = (category, normalize_key(name), url)
-                if pid in seen:
-                    continue
-                seen.add(pid)
-
-                products.append({
-                    "category": category,
-                    "name": name,
-                    "url": url,
-                    "status": "UNKNOWN",
-                    "price": price,
-                    "available_from": "",
-                })
-
-    return products
+        html = page.content()
+        browser.close()
+        return html
 
 
-def parse_products_from_links(soup: BeautifulSoup, category: str) -> list[dict]:
+def parse_products(html_text: str, category: str) -> list[dict]:
+    soup = BeautifulSoup(html_text, "html.parser")
     products = []
     seen = set()
 
-    # prima prova a cercare box prodotto più tipiche
-    candidate_containers = soup.select(
-        ".productbox, .product-box, .product--box, .card, .product"
-    )
-
-    for container in candidate_containers:
-        a = container.find("a", href=True)
-        if not a:
-            continue
-
-        name = normalize_text(a.get_text(" ", strip=True))
+    containers = soup.select("a[href]")
+    for a in containers:
         href = absolute_url(a.get("href", ""))
+        name = normalize_text(a.get_text(" ", strip=True))
 
-        full_text = normalize_text(container.get_text(" ", strip=True))
-
-        if not name or is_blocked_name(name) or not looks_like_product_href(href):
+        if not href or not name:
             continue
 
-        # richiedi almeno un segnale da prodotto
-        if not (
-            extract_price(full_text)
-            or detect_status(full_text) != "UNKNOWN"
-            or "booster" in normalize_key(name)
-            or "display" in normalize_key(name)
-            or "deck" in normalize_key(name)
-            or "riftbound" in normalize_key(name)
-        ):
+        parent = a
+        for _ in range(5):
+            if parent.parent is None:
+                break
+            parent = parent.parent
+
+        full_text = normalize_text(parent.get_text(" ", strip=True))
+
+        if not looks_like_product(name, href, full_text):
             continue
 
         pid = (category, normalize_key(name), href)
@@ -284,24 +184,6 @@ def parse_products_from_links(soup: BeautifulSoup, category: str) -> list[dict]:
     return products
 
 
-def parse_products(html_text: str, category: str) -> list[dict]:
-    soup = BeautifulSoup(html_text, "html.parser")
-
-    # 1) prova JSON-LD
-    jsonld_products = parse_products_from_jsonld(soup, category)
-    if jsonld_products:
-        log(f"{category}: trovati {len(jsonld_products)} prodotti da JSON-LD")
-        return jsonld_products
-
-    # 2) fallback su box/link
-    link_products = parse_products_from_links(soup, category)
-    if link_products:
-        log(f"{category}: trovati {len(link_products)} prodotti da box/link")
-        return link_products
-
-    return []
-
-
 def send_telegram_message(text: str) -> None:
     if not BOT_TOKEN or not CHAT_ID:
         log("Telegram non configurato: salto invio messaggio.")
@@ -313,16 +195,15 @@ def send_telegram_message(text: str) -> None:
         "text": text,
         "disable_web_page_preview": True,
     }
-
-    response = requests.post(url, data=payload, timeout=30)
-    response.raise_for_status()
+    r = requests.post(url, data=payload, timeout=30)
+    r.raise_for_status()
 
 
 def make_product_id(product: dict) -> str:
     return f"{product['category']}|{normalize_key(product['name'])}"
 
 
-def compare_states(old_state: dict, new_products: list[dict]) -> tuple[dict, list[str]]:
+def compare_states(old_state: dict, new_products: list[dict]):
     new_state = old_state.copy()
     alerts = []
 
@@ -344,17 +225,15 @@ def compare_states(old_state: dict, new_products: list[dict]) -> tuple[dict, lis
 
         if prev is None:
             alerts.append(
-                "\n".join(
-                    [
-                        "🚨 GAMES ISLAND - NUOVO PRODOTTO",
-                        f"Categoria: {cur['category'].upper()}",
-                        f"Nome: {cur['name']}",
-                        f"Stato: {cur['status']}",
-                        f"Prezzo: {cur['price'] or 'N/D'}",
-                        f"Data: {cur['available_from'] or 'N/D'}",
-                        cur["url"],
-                    ]
-                )
+                "\n".join([
+                    "🚨 GAMES ISLAND - NUOVO PRODOTTO",
+                    f"Categoria: {cur['category'].upper()}",
+                    f"Nome: {cur['name']}",
+                    f"Stato: {cur['status']}",
+                    f"Prezzo: {cur['price'] or 'N/D'}",
+                    f"Data: {cur['available_from'] or 'N/D'}",
+                    cur["url"],
+                ])
             )
             new_state[pid] = cur
             continue
@@ -364,17 +243,15 @@ def compare_states(old_state: dict, new_products: list[dict]) -> tuple[dict, lis
 
         if prev_status != cur_status:
             alerts.append(
-                "\n".join(
-                    [
-                        "🚨 GAMES ISLAND - CAMBIO STATO",
-                        f"Categoria: {cur['category'].upper()}",
-                        f"Nome: {cur['name']}",
-                        f"Stato: {prev_status} -> {cur_status}",
-                        f"Prezzo: {cur['price'] or 'N/D'}",
-                        f"Data: {cur['available_from'] or 'N/D'}",
-                        cur["url"],
-                    ]
-                )
+                "\n".join([
+                    "🚨 GAMES ISLAND - CAMBIO STATO",
+                    f"Categoria: {cur['category'].upper()}",
+                    f"Nome: {cur['name']}",
+                    f"Stato: {prev_status} -> {cur_status}",
+                    f"Prezzo: {cur['price'] or 'N/D'}",
+                    f"Data: {cur['available_from'] or 'N/D'}",
+                    cur["url"],
+                ])
             )
 
         new_state[pid] = cur
@@ -389,7 +266,12 @@ def run() -> int:
     for category, url in PAGES.items():
         try:
             log(f"Controllo {category}: {url}")
-            html_text = fetch_html(url)
+            html_text = fetch_rendered_html(url)
+
+            if "blacklisted" in html_text.lower() or "validating" in html_text.lower():
+                log(f"{category}: pagina bloccata o challenge rilevata")
+                continue
+
             products = parse_products(html_text, category)
             log(f"{category}: trovati {len(products)} prodotti finali")
             all_products.extend(products)
