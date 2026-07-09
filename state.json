@@ -2,7 +2,7 @@
   "magic|- 18%": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194420+00:00",
+    "last_seen": "2026-07-09T22:43:33.155367+00:00",
     "name": "- 18%",
     "price": "89,99 €",
     "status": "IN STOCK",
@@ -11,7 +11,7 @@
   "magic|- 36%": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194392+00:00",
+    "last_seen": "2026-07-09T22:43:33.155312+00:00",
     "name": "- 36%",
     "price": "89,99 €",
     "status": "IN STOCK",
@@ -20,7 +20,7 @@
   "magic|- 6%": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194429+00:00",
+    "last_seen": "2026-07-09T22:43:33.155384+00:00",
     "name": "- 6%",
     "price": "84,99 €",
     "status": "IN STOCK",
@@ -29,7 +29,7 @@
   "magic|about us": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194350+00:00",
+    "last_seen": "2026-07-09T22:43:33.155231+00:00",
     "name": "About us",
     "price": "",
     "status": "PRE-ORDER",
@@ -38,7 +38,7 @@
   "magic|aetherdrift collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194418+00:00",
+    "last_seen": "2026-07-09T22:43:33.155364+00:00",
     "name": "Aetherdrift Collector Booster Box - English",
     "price": "219,99 €",
     "status": "OUT OF STOCK",
@@ -47,7 +47,7 @@
   "magic|aetherdrift play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194422+00:00",
+    "last_seen": "2026-07-09T22:43:33.155372+00:00",
     "name": "Aetherdrift Play Booster Box - English",
     "price": "89,99 €",
     "status": "IN STOCK",
@@ -56,7 +56,7 @@
   "magic|avatar: the last airbender play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194403+00:00",
+    "last_seen": "2026-07-09T22:43:33.155331+00:00",
     "name": "Avatar: The Last Airbender Play Booster Box - English",
     "price": "139,99 €",
     "status": "IN STOCK",
@@ -65,7 +65,7 @@
   "magic|best sellers": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194408+00:00",
+    "last_seen": "2026-07-09T22:43:33.155344+00:00",
     "name": "Best sellers",
     "price": "159,99 €",
     "status": "IN STOCK",
@@ -74,7 +74,7 @@
   "magic|bloomburrow collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194437+00:00",
+    "last_seen": "2026-07-09T22:43:33.155398+00:00",
     "name": "Bloomburrow Collector Booster Box - English",
     "price": "799,99 €",
     "status": "OUT OF STOCK",
@@ -83,7 +83,7 @@
   "magic|bloomburrow play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194440+00:00",
+    "last_seen": "2026-07-09T22:43:33.155403+00:00",
     "name": "Bloomburrow Play Booster Box - English",
     "price": "149,99 €",
     "status": "OUT OF STOCK",
@@ -92,7 +92,7 @@
   "magic|commander masters draft booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194458+00:00",
+    "last_seen": "2026-07-09T22:43:33.155433+00:00",
     "name": "Commander Masters Draft Booster Box - English",
     "price": "399,99 €",
     "status": "OUT OF STOCK",
@@ -101,7 +101,7 @@
   "magic|commander masters set booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194461+00:00",
+    "last_seen": "2026-07-09T22:43:33.155437+00:00",
     "name": "Commander Masters Set Booster Box - English",
     "price": "499,00 €",
     "status": "IN STOCK",
@@ -110,7 +110,7 @@
   "magic|edge of eternities play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194406+00:00",
+    "last_seen": "2026-07-09T22:43:33.155336+00:00",
     "name": "Edge of Eternities Play Booster Box - English",
     "price": "159,99 €",
     "status": "OUT OF STOCK",
@@ -119,16 +119,25 @@
   "magic|events": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194344+00:00",
+    "last_seen": "2026-07-09T22:43:33.155221+00:00",
     "name": "Events",
     "price": "",
     "status": "PRE-ORDER",
     "url": "https://games-island.eu/Events-1"
   },
+  "magic|final fantasy collector booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-07-09T22:43:33.155341+00:00",
+    "name": "Final Fantasy Collector Booster Box - English",
+    "price": "199,00 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Final-Fantasy-Collector-Booster-Box-English"
+  },
   "magic|foundations collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194427+00:00",
+    "last_seen": "2026-07-09T22:43:33.155381+00:00",
     "name": "Foundations Collector Booster Box - English",
     "price": "549,99 €",
     "status": "OUT OF STOCK",
@@ -137,7 +146,7 @@
   "magic|foundations jumpstart booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194432+00:00",
+    "last_seen": "2026-07-09T22:43:33.155389+00:00",
     "name": "Foundations Jumpstart Booster Box - English",
     "price": "84,99 €",
     "status": "IN STOCK",
@@ -146,7 +155,7 @@
   "magic|foundations play booster box - english": {
     "available_from": "02.10.2026",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194434+00:00",
+    "last_seen": "2026-07-09T22:43:33.155394+00:00",
     "name": "Foundations Play Booster Box - English",
     "price": "114,99 €",
     "status": "IN STOCK",
@@ -155,43 +164,34 @@
   "magic|innistrad remastered collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194425+00:00",
+    "last_seen": "2026-07-09T22:43:33.155377+00:00",
     "name": "Innistrad Remastered Collector Booster Box - English",
     "price": "339,99 €",
     "status": "IN STOCK",
     "url": "https://games-island.eu/Innistrad-Remastered-Collector-Booster-Box-English"
   },
+  "magic|innistrad: midnight hunt collector booster box - english": {
+    "available_from": "",
+    "category": "magic",
+    "last_seen": "2026-07-09T22:43:33.155308+00:00",
+    "name": "Innistrad: Midnight Hunt Collector Booster Box - English",
+    "price": "179,99 €",
+    "status": "IN STOCK",
+    "url": "https://games-island.eu/Magic-The-Gathering_35"
+  },
   "magic|jobs": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194346+00:00",
+    "last_seen": "2026-07-09T22:43:33.155225+00:00",
     "name": "Jobs",
     "price": "",
     "status": "PRE-ORDER",
     "url": "https://games-island.eu/Jobs-1"
   },
-  "magic|march of the machine collector booster box - english": {
-    "available_from": "",
-    "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194464+00:00",
-    "name": "March of the Machine Collector Booster Box - English",
-    "price": "399,99 €",
-    "status": "OUT OF STOCK",
-    "url": "https://games-island.eu/March-of-the-Machine-Collector-Booster-Box-English"
-  },
-  "magic|march of the machine: the aftermath collector booster box - english": {
-    "available_from": "",
-    "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194467+00:00",
-    "name": "March of the Machine: The Aftermath Collector Booster Box - English",
-    "price": "184,99 €",
-    "status": "OUT OF STOCK",
-    "url": "https://games-island.eu/March-of-the-Machine-The-Aftermath-Collector-Booster-Box-English"
-  },
   "magic|modern horizons 3 play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194444+00:00",
+    "last_seen": "2026-07-09T22:43:33.155408+00:00",
     "name": "Modern Horizons 3 Play Booster Box - English",
     "price": "299,99 €",
     "status": "IN STOCK",
@@ -200,7 +200,7 @@
   "magic|mtg - final fantasy play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194410+00:00",
+    "last_seen": "2026-07-09T22:43:33.155349+00:00",
     "name": "MtG - Final Fantasy Play Booster Box - English",
     "price": "159,99 €",
     "status": "IN STOCK",
@@ -209,7 +209,7 @@
   "magic|mtg - jumpstart booster box - english - vat margin scheme": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194374+00:00",
+    "last_seen": "2026-07-09T22:43:33.155273+00:00",
     "name": "MTG - Jumpstart Booster Box - English - VAT Margin Scheme",
     "price": "107,99 €",
     "status": "OUT OF STOCK",
@@ -218,7 +218,7 @@
   "magic|mtg - lorwyn eclipsed collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194395+00:00",
+    "last_seen": "2026-07-09T22:43:33.155317+00:00",
     "name": "MtG - Lorwyn Eclipsed Collector Booster Box - English",
     "price": "329,99 €",
     "status": "OUT OF STOCK",
@@ -227,7 +227,7 @@
   "magic|mtg - lorwyn eclipsed play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194398+00:00",
+    "last_seen": "2026-07-09T22:43:33.155322+00:00",
     "name": "MtG - Lorwyn Eclipsed Play Booster Box - English",
     "price": "129,99 €",
     "status": "IN STOCK",
@@ -236,7 +236,7 @@
   "magic|mtg - marvel super heroes collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194377+00:00",
+    "last_seen": "2026-07-09T22:43:33.155279+00:00",
     "name": "MtG - Marvel Super Heroes Collector Booster Box - English",
     "price": "379,99 €",
     "status": "OUT OF STOCK",
@@ -245,7 +245,7 @@
   "magic|mtg - marvel super heroes jumpstart booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194380+00:00",
+    "last_seen": "2026-07-09T22:43:33.155284+00:00",
     "name": "MtG - Marvel Super Heroes Jumpstart Booster Box - English",
     "price": "114,99 €",
     "status": "IN STOCK",
@@ -254,7 +254,7 @@
   "magic|mtg - marvel super heroes play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194385+00:00",
+    "last_seen": "2026-07-09T22:43:33.155293+00:00",
     "name": "MtG - Marvel Super Heroes Play Booster Box - English",
     "price": "139,99 €",
     "status": "IN STOCK",
@@ -263,7 +263,7 @@
   "magic|mtg - mirage booster box - englisch - box 1": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194357+00:00",
+    "last_seen": "2026-07-09T22:43:33.155243+00:00",
     "name": "MTG - Mirage Booster Box - Englisch - Box 1",
     "price": "499,99 €",
     "status": "OUT OF STOCK",
@@ -272,7 +272,7 @@
   "magic|mtg - mirage booster box - englisch - box 2": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194359+00:00",
+    "last_seen": "2026-07-09T22:43:33.155248+00:00",
     "name": "MTG - Mirage Booster Box - Englisch - Box 2",
     "price": "499,99 €",
     "status": "OUT OF STOCK",
@@ -281,7 +281,7 @@
   "magic|mtg - reality fracture collector booster box - english": {
     "available_from": "02.10.2026",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194362+00:00",
+    "last_seen": "2026-07-09T22:43:33.155253+00:00",
     "name": "MTG - Reality Fracture Collector Booster Box - English",
     "price": "239,99 €",
     "status": "PRE-ORDER",
@@ -290,7 +290,7 @@
   "magic|mtg - reality fracture play booster box - english": {
     "available_from": "02.10.2026",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194365+00:00",
+    "last_seen": "2026-07-09T22:43:33.155258+00:00",
     "name": "MTG - Reality Fracture Play Booster Box - English",
     "price": "109,99 €",
     "status": "PRE-ORDER",
@@ -299,16 +299,16 @@
   "magic|mtg - secrets of strixhaven collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194388+00:00",
+    "last_seen": "2026-07-09T22:43:33.155298+00:00",
     "name": "MtG - Secrets of Strixhaven Collector Booster Box - English",
     "price": "349,99 €",
-    "status": "OUT OF STOCK",
+    "status": "IN STOCK",
     "url": "https://games-island.eu/MtG-Secrets-of-Strixhaven-Collector-Booster-Box-English"
   },
   "magic|mtg - secrets of strixhaven play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194390+00:00",
+    "last_seen": "2026-07-09T22:43:33.155303+00:00",
     "name": "MtG - Secrets of Strixhaven Play Booster Box - English",
     "price": "119,99 €",
     "status": "OUT OF STOCK",
@@ -317,7 +317,7 @@
   "magic|mtg - the hobbit collector booster box - english": {
     "available_from": "14.08.2026",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194368+00:00",
+    "last_seen": "2026-07-09T22:43:33.155263+00:00",
     "name": "MTG - The Hobbit Collector Booster Box - English",
     "price": "379,99 €",
     "status": "PRE-ORDER",
@@ -326,7 +326,7 @@
   "magic|mtg - the hobbit play booster box - english": {
     "available_from": "14.08.2026",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194370+00:00",
+    "last_seen": "2026-07-09T22:43:33.155268+00:00",
     "name": "MTG - The Hobbit Play Booster Box - English",
     "price": "139,99 €",
     "status": "PRE-ORDER",
@@ -335,7 +335,7 @@
   "magic|mtg - the lost caverns of ixalan set booster box - italian": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194354+00:00",
+    "last_seen": "2026-07-09T22:43:33.155237+00:00",
     "name": "MTG - The Lost Caverns of Ixalan Set Booster Box - Italian",
     "price": "114,99 €",
     "status": "OUT OF STOCK",
@@ -344,7 +344,7 @@
   "magic|murders at karlov manor collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194450+00:00",
+    "last_seen": "2026-07-09T22:43:33.155418+00:00",
     "name": "Murders at Karlov Manor Collector Booster Box - English",
     "price": "259,99 €",
     "status": "OUT OF STOCK",
@@ -353,7 +353,7 @@
   "magic|news": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194348+00:00",
+    "last_seen": "2026-07-09T22:43:33.155228+00:00",
     "name": "News",
     "price": "",
     "status": "PRE-ORDER",
@@ -362,7 +362,7 @@
   "magic|outlaws of thunder junction play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194447+00:00",
+    "last_seen": "2026-07-09T22:43:33.155413+00:00",
     "name": "Outlaws of Thunder Junction Play Booster Box - English",
     "price": "129,99 €",
     "status": "IN STOCK",
@@ -371,16 +371,16 @@
   "magic|tarkir: dragonstorm collector booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194413+00:00",
+    "last_seen": "2026-07-09T22:43:33.155354+00:00",
     "name": "Tarkir: Dragonstorm Collector Booster Box - English",
-    "price": "284,99 €",
-    "status": "OUT OF STOCK",
+    "price": "349,99 €",
+    "status": "IN STOCK",
     "url": "https://games-island.eu/Tarkir-Dragonstorm-Collector-Booster-Box-English"
   },
   "magic|tarkir: dragonstorm play booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194415+00:00",
+    "last_seen": "2026-07-09T22:43:33.155359+00:00",
     "name": "Tarkir: Dragonstorm Play Booster Box - English",
     "price": "134,99 €",
     "status": "IN STOCK",
@@ -389,7 +389,7 @@
   "magic|the lost caverns of ixalan set booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194453+00:00",
+    "last_seen": "2026-07-09T22:43:33.155423+00:00",
     "name": "The Lost Caverns of Ixalan Set Booster Box - English",
     "price": "239,99 €",
     "status": "IN STOCK",
@@ -398,7 +398,7 @@
   "magic|wilds of eldraine set booster box - english": {
     "available_from": "",
     "category": "magic",
-    "last_seen": "2026-07-09T21:07:20.194456+00:00",
+    "last_seen": "2026-07-09T22:43:33.155428+00:00",
     "name": "Wilds of Eldraine Set Booster Box - English",
     "price": "299,99 €",
     "status": "IN STOCK",
@@ -407,7 +407,7 @@
   "onepiece|about us": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194327+00:00",
+    "last_seen": "2026-07-09T22:43:33.155189+00:00",
     "name": "About us",
     "price": "",
     "status": "PRE-ORDER",
@@ -416,7 +416,7 @@
   "onepiece|events": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194321+00:00",
+    "last_seen": "2026-07-09T22:43:33.155178+00:00",
     "name": "Events",
     "price": "",
     "status": "PRE-ORDER",
@@ -425,7 +425,7 @@
   "onepiece|jobs": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194323+00:00",
+    "last_seen": "2026-07-09T22:43:33.155182+00:00",
     "name": "Jobs",
     "price": "",
     "status": "PRE-ORDER",
@@ -434,7 +434,7 @@
   "onepiece|news": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194325+00:00",
+    "last_seen": "2026-07-09T22:43:33.155185+00:00",
     "name": "News",
     "price": "",
     "status": "PRE-ORDER",
@@ -443,7 +443,7 @@
   "onepiece|one piece card game - heroines edition booster box (eb03) - englisch": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194330+00:00",
+    "last_seen": "2026-07-09T22:43:33.155195+00:00",
     "name": "One Piece Card Game - Heroines Edition Booster Box (EB03) - Englisch",
     "price": "279,99 €",
     "status": "OUT OF STOCK",
@@ -452,7 +452,7 @@
   "onepiece|one piece card game - paramount war booster display op02 - english": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194342+00:00",
+    "last_seen": "2026-07-09T22:43:33.155218+00:00",
     "name": "One Piece Card Game - Paramount War Booster Display OP02 - English",
     "price": "499,99 €",
     "status": "OUT OF STOCK",
@@ -461,7 +461,7 @@
   "onepiece|one piece card game - premium booster display (prb01) - english": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194336+00:00",
+    "last_seen": "2026-07-09T22:43:33.155206+00:00",
     "name": "One Piece Card Game - Premium Booster Display (PRB01) - English",
     "price": "799,99 €",
     "status": "OUT OF STOCK",
@@ -470,7 +470,7 @@
   "onepiece|one piece card game - royal blood booster display (op10) - english": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194333+00:00",
+    "last_seen": "2026-07-09T22:43:33.155201+00:00",
     "name": "One Piece Card Game - Royal Blood Booster Display (OP10) - English",
     "price": "174,99 €",
     "status": "OUT OF STOCK",
@@ -479,7 +479,7 @@
   "onepiece|one piece card game - two legends booster box (op08) - english": {
     "available_from": "",
     "category": "onepiece",
-    "last_seen": "2026-07-09T21:07:20.194339+00:00",
+    "last_seen": "2026-07-09T22:43:33.155212+00:00",
     "name": "One Piece Card Game - Two Legends Booster Box (OP08) - English",
     "price": "149,99 €",
     "status": "OUT OF STOCK",
@@ -488,7 +488,7 @@
   "riftbound|- 20%": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194287+00:00",
+    "last_seen": "2026-07-09T22:43:33.155120+00:00",
     "name": "- 20%",
     "price": "39,99 €",
     "status": "IN STOCK",
@@ -497,7 +497,7 @@
   "riftbound|- 8%": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194285+00:00",
+    "last_seen": "2026-07-09T22:43:33.155116+00:00",
     "name": "- 8%",
     "price": "54,99 €",
     "status": "IN STOCK",
@@ -506,7 +506,7 @@
   "riftbound|about us": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194256+00:00",
+    "last_seen": "2026-07-09T22:43:33.155066+00:00",
     "name": "About us",
     "price": "",
     "status": "PRE-ORDER",
@@ -515,7 +515,7 @@
   "riftbound|events": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194245+00:00",
+    "last_seen": "2026-07-09T22:43:33.155049+00:00",
     "name": "Events",
     "price": "",
     "status": "PRE-ORDER",
@@ -524,7 +524,7 @@
   "riftbound|jobs": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194251+00:00",
+    "last_seen": "2026-07-09T22:43:33.155056+00:00",
     "name": "Jobs",
     "price": "",
     "status": "PRE-ORDER",
@@ -533,7 +533,7 @@
   "riftbound|news": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194254+00:00",
+    "last_seen": "2026-07-09T22:43:33.155061+00:00",
     "name": "News",
     "price": "",
     "status": "PRE-ORDER",
@@ -542,7 +542,7 @@
   "riftbound|riftbound grand summoner skirmish am 18.07.2026 event ticket": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194264+00:00",
+    "last_seen": "2026-07-09T22:43:33.155079+00:00",
     "name": "Riftbound Grand Summoner Skirmish am 18.07.2026 Event Ticket",
     "price": "35,00 €",
     "status": "IN STOCK",
@@ -551,7 +551,7 @@
   "riftbound|riftbound vendetta pre-rift event am 24.07.2026 event ticket": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194260+00:00",
+    "last_seen": "2026-07-09T22:43:33.155073+00:00",
     "name": "Riftbound Vendetta Pre-Rift Event am 24.07.2026 Event Ticket",
     "price": "30,00 €",
     "status": "IN STOCK",
@@ -560,7 +560,7 @@
   "riftbound|riftbound: league of legends - lunar revel bundle 2026 - chinese": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194291+00:00",
+    "last_seen": "2026-07-09T22:43:33.155126+00:00",
     "name": "Riftbound: League of Legends - Lunar Revel Bundle 2026 - Chinese",
     "price": "79,99 €",
     "status": "OUT OF STOCK",
@@ -569,7 +569,7 @@
   "riftbound|riftbound: league of legends - origins booster box - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194297+00:00",
+    "last_seen": "2026-07-09T22:43:33.155138+00:00",
     "name": "Riftbound: League of Legends - Origins Booster Box - English",
     "price": "159,99 €",
     "status": "OUT OF STOCK",
@@ -578,7 +578,7 @@
   "riftbound|riftbound: league of legends - origins champion deck: jinx - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194301+00:00",
+    "last_seen": "2026-07-09T22:43:33.155144+00:00",
     "name": "Riftbound: League of Legends - Origins Champion Deck: Jinx - English",
     "price": "20,99 €",
     "status": "OUT OF STOCK",
@@ -587,7 +587,7 @@
   "riftbound|riftbound: league of legends - origins champion deck: viktor - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194304+00:00",
+    "last_seen": "2026-07-09T22:43:33.155149+00:00",
     "name": "Riftbound: League of Legends - Origins Champion Deck: Viktor - English",
     "price": "29,99 €",
     "status": "OUT OF STOCK",
@@ -596,7 +596,7 @@
   "riftbound|riftbound: league of legends - origins proving grounds - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194318+00:00",
+    "last_seen": "2026-07-09T22:43:33.155174+00:00",
     "name": "Riftbound: League of Legends - Origins Proving Grounds - English",
     "price": "54,99 €",
     "status": "IN STOCK",
@@ -605,7 +605,7 @@
   "riftbound|riftbound: league of legends - plated legend: darius, hand of noxus": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194267+00:00",
+    "last_seen": "2026-07-09T22:43:33.155085+00:00",
     "name": "Riftbound: League of Legends - Plated Legend: Darius, Hand of Noxus",
     "price": "999,00 €",
     "status": "OUT OF STOCK",
@@ -614,7 +614,7 @@
   "riftbound|riftbound: league of legends - unleashed booster box - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194271+00:00",
+    "last_seen": "2026-07-09T22:43:33.155092+00:00",
     "name": "Riftbound: League of Legends - Unleashed Booster Box - English",
     "price": "119,99 €",
     "status": "OUT OF STOCK",
@@ -623,7 +623,7 @@
   "riftbound|riftbound: league of legends - unleashed booster pack - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194274+00:00",
+    "last_seen": "2026-07-09T22:43:33.155097+00:00",
     "name": "Riftbound: League of Legends - Unleashed Booster Pack - English",
     "price": "4,99 €",
     "status": "OUT OF STOCK",
@@ -632,7 +632,7 @@
   "riftbound|riftbound: league of legends - unleashed champion deck: vex - english": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194277+00:00",
+    "last_seen": "2026-07-09T22:43:33.155103+00:00",
     "name": "Riftbound: League of Legends - Unleashed Champion Deck: Vex - English",
     "price": "24,99 €",
     "status": "OUT OF STOCK",
@@ -641,7 +641,7 @@
   "riftbound|riftbound: league of legends – origins ahri playmat": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194308+00:00",
+    "last_seen": "2026-07-09T22:43:33.155156+00:00",
     "name": "Riftbound: League of Legends – Origins Ahri Playmat",
     "price": "24,99 €",
     "status": "IN STOCK",
@@ -650,7 +650,7 @@
   "riftbound|riftbound: league of legends – origins miss fortune playmat": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194312+00:00",
+    "last_seen": "2026-07-09T22:43:33.155163+00:00",
     "name": "Riftbound: League of Legends – Origins Miss Fortune Playmat",
     "price": "21,99 €",
     "status": "IN STOCK",
@@ -659,7 +659,7 @@
   "riftbound|riftbound: league of legends – origins volibear playmat": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194315+00:00",
+    "last_seen": "2026-07-09T22:43:33.155169+00:00",
     "name": "Riftbound: League of Legends – Origins Volibear Playmat",
     "price": "21,99 €",
     "status": "IN STOCK",
@@ -668,7 +668,7 @@
   "riftbound|riftbound: league of legends – unleashed slim booster box - chinese": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194282+00:00",
+    "last_seen": "2026-07-09T22:43:33.155112+00:00",
     "name": "Riftbound: League of Legends – Unleashed Slim Booster Box - Chinese",
     "price": "44,99 €",
     "status": "IN STOCK",
@@ -677,7 +677,7 @@
   "riftbound|the acrylic box - riftbound booster box league of legends | acryl case": {
     "available_from": "",
     "category": "riftbound",
-    "last_seen": "2026-07-09T21:07:20.194294+00:00",
+    "last_seen": "2026-07-09T22:43:33.155132+00:00",
     "name": "The Acrylic Box - Riftbound Booster Box League of Legends | Acryl Case",
     "price": "19,99 €",
     "status": "IN STOCK",
